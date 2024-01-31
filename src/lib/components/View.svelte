@@ -1,13 +1,12 @@
 <script>
 	import { tweened } from "svelte/motion";
 	import { cubicOut } from 'svelte/easing';
-	
-	export let position, rotation;
+
   	import { HTML } from "@threlte/extras";
 	let el;
 
-	let opacity = tweened(0, {
-		duration: 100,
+	let opacity = tweened(1, {
+		duration: 200,
 		easing: cubicOut
 	})
     const visChange = (isVisible) => {
@@ -24,7 +23,7 @@
 
 <HTML transform occlude 
 	on:visibilitychange={visChange}
-	position={position}>
+	{...$$restProps}>
 	<div bind:this={el}>
 		<slot />
 	</div>

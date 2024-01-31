@@ -4,28 +4,15 @@
 	import { spring } from 'svelte/motion'
 	import { TextureLoader, RepeatWrapping, SRGBColorSpace, AmbientLight, DirectionalLight } from 'three';
   	import Part from '../building/Part.svelte';
-  import View from '../components/View.svelte';
-
-	let texture, texture2;
-	useLoader(TextureLoader).load("/textures/stud.png").then((tex) => {
-		tex.wrapS = RepeatWrapping;
-		tex.wrapT = RepeatWrapping;
-		tex.repeat.set(200,200);
-		tex.colorSpace = SRGBColorSpace
-		texture = tex;
-	})
-
+  	import View from '../components/View.svelte';
 </script>
   
 <!-- set scene background -->
 
 <T.PerspectiveCamera
 	makeDefault
-	position={[10, 5, 0]}
+	position={[40, 40, -40]}
 	fov={90}
-	on:create={({ ref }) => {
-		ref.lookAt(0, 4, 0)
-	}}
 >
 	<OrbitControls enableDamping />
 </T.PerspectiveCamera>
@@ -53,6 +40,21 @@
 />
 
 <Part 
+	pos={[0,14,-40]}
+	sx={20} sy={18} sz={20} 
+	col="gray"
+/>
+<Part 
+	pos={[0,24,-40]}
+	sx={20} sy={2} sz={20} 
+	col="lightgray"
+/>
+<Part 
+	pos={[0,24.5,-20]}
+	sx={4} sy={1} sz={20} 
+	col="white"
+/>
+<Part 
 	pos={[20,10,0]}
 	sx={20} sy={10} sz={20} 
 	col="lightgray"
@@ -70,12 +72,14 @@
 	col="lightblue"
 />
 
-<!-- <View position={[-10,40,0]}>
-	<iframe width="1024" height="768" src="https://niko.pages.gay" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</View> -->
-<!-- <View position={[30,40,0]}>
-	<h1 style="font-size:400px">joblox :3</h1>
-</View> -->
-<!-- <View position={[-10,80,0]}>
-	<h1 style="font-size:400px">joblox :3</h1>
-</View> -->
+<View position={[0,40,0]} rotation={[0,-180,0]}>
+	<h1 style="font-size:400px; margin:0;">joblox :3</h1>
+	<!-- <h2 style="font-size:100px; margin:0; float:right; background:black;"><a href="https://github.com/nkkls/joblox">src code</a></h2> -->
+</View>
+<View position={[0,22,10.1]}>
+	<div style="border: 3px solid; background-color:black; padding:1em; pointer-events:none;">
+		<h1 style="font-size: 50px; margin:0;">scene select</h1>
+		<h2 style="font-size: 30px; margin:0;">current scene: main</h2>
+
+	</div>
+</View>
