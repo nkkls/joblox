@@ -21,7 +21,7 @@
     });
 </script>
 
-<HTML transform occlude castShadow
+<HTML transform occlude  
 	on:visibilitychange={visChange}
 	{...$$restProps}>
 	<div bind:this={el}>
