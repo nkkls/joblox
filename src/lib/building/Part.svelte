@@ -9,10 +9,10 @@
     let defaultMaterial = new MeshStandardMaterial({ color: col });
 
     Promise.all([
-        useLoader(TextureLoader).load("/textures/stud.png"),
-        useLoader(TextureLoader).load("/textures/studnormal.png"),
-        useLoader(TextureLoader).load("/textures/inlet.png"), 
-        useLoader(TextureLoader).load("/textures/inletnormal.png")
+        useLoader(TextureLoader).load("./textures/stud.png"),
+        useLoader(TextureLoader).load("./textures/studnormal.png"),
+        useLoader(TextureLoader).load("./textures/inlet.png"), 
+        useLoader(TextureLoader).load("./textures/inletnormal.png")
     ]).then(([topTex, topNormal, bottomTex, bottomNormal]) => {
         let textures = [topTex, bottomTex];
         let normals = [topNormal, bottomNormal];
